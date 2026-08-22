@@ -3,8 +3,8 @@ export const ARTICLES = [
  {
   "id": "moturudiylik",
   "title": "Moturudiylik ta'limoti va hozirgi zamon",
-  "author": "Mehinbonu Muhammadieva",
-  "role": "Imom Buxoriy nomidagi Toshkent Islom instituti talabasi",
+  "author": "Mehin Sa'dulloh",
+  "role": "Imom Buxoriy nomidagi Toshkent Islom instituti bitiruvchisi",
   "date": "29.03.2025",
   "tag": "Ilmiy maqola",
   "read": 12,
@@ -168,6 +168,22 @@ export const ARTICLES = [
    }
   ]
  },
+ {
+  id: "nurga-chulgangan-oy",
+  tag: "Diniy insho",
+  title: "Nurga chulg'angan oy...",
+  lead: "Mavlid oyi munosabati bilan — qalblarni nurlantiruvchi mehr, shafqat va uyg'onish haqida insho.",
+  author: "Mehin Sa'dulloh",
+  date: "23.08.2026",
+  read: 2,
+  body: [
+    { t: "p", x: "Qalblar titraydigan, so'zlar muloyimlashadigan va zikrlar yanada go'zalroq jaranglaydigan kunlar keldi. Mavlid oyi — qorong'ulikka burkangan olamga saodat quyoshi porlagan, jaholat zanjirlarini sindirib, insoniyatga shafqat va go'zallik ulashgan poyandoz oyidir." },
+    { t: "p", x: "Bir o'ylab ko'ring-a, u zot alayhissalom dunyoga kelishlaridan oldin qalblar qanchalar tashna, olam qanchalar zulmatda edi... Va birdaniga, har bir zarraga hayot bag'ishlovchi bir nur tushdi. U nur bilan birga bag'ritoshlik o'rnini rahmdillik, adovat o'rnini birodarlik, umidsizlik o'rnini esa abadiy najot tuyg'usi egalladi." },
+    { t: "p", x: "Mavlid oyi — o'zligimizni, xulqimizni va sevgimizni taftish qilish imkonidir." },
+    { t: "p", x: "U zotning tavalludi — har birimizning qalbimizda mehr-shafqat, saxovat va kechirimlik qayta uyg'onishi uchun bir chorlov." },
+    { t: "q", x: "Albatta, Alloh va Uning farishtalari Payg'ambarga salovot ayturlar. Ey iymon keltirganlar! Siz ham Unga salovot ayting va salom yo'llang! (Ahzob surasi, 56-oyat)" }
+  ]
+},
  {
   "id": "tazia",
   "title": "Sa'dulla Ahmad — nodir shaxs",
