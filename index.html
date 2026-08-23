@@ -53,6 +53,8 @@ input,select,textarea{font-family:'IBM Plex Sans',sans-serif;}
       <span data-go="books" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">Kitoblar</span>
       <span data-go="articles" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">Maqolalar</span>
       <span data-go="poetry" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">She'riyat</span>
+      <span data-go="prose" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">Nasriy asarlar</span>
+      <span data-go="elibrary" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">E-kutubxona</span>
       <span data-go="news" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">Yangiliklar</span>
       <span data-go="services" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">Xizmatlar</span>
       <span data-go="authors" style="cursor:pointer;padding:8px 11px;font-size:13.5px;color:#3d4f47;border-radius:2px;" style-hover="background:#ece7d9;color:#114b3c;">Mualliflar</span>
@@ -430,7 +432,27 @@ input,select,textarea{font-family:'IBM Plex Sans',sans-serif;}
 </section>
 </sc-if>
 
-<sc-if value="{{ isNews }}">
+<sc-if value="{{ isProse }}">
+<section>
+  <div style="max-width:1180px;margin:0 auto;padding:64px 28px 90px;">
+    <div style="font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:#b4884a;font-weight:600;margin-bottom:14px;">Kutubxona</div>
+    <h1 style="font-family:Lora,serif;font-size:46px;font-weight:500;margin:0 0 14px;letter-spacing:-0.02em;">Nasriy asarlar</h1>
+    <p style="font-family:'PT Serif',serif;font-size:17px;line-height:1.65;color:#5d6b64;margin:0 0 50px;max-width:620px;">Hikoya, qissa va romanlar to'plami. Bu bo'lim tez orada yangi asarlar bilan to'ldiriladi.</p>
+    <div style="padding:70px 20px;text-align:center;color:#8a9a91;font-family:'PT Serif',serif;font-size:16px;border:1px dashed #d8d0bc;border-radius:3px;">Hozircha bu yerda asarlar yo'q.<br />Tez orada yangi hikoya va romanlar bilan to'ldiriladi.</div>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isElibrary }}">
+<section>
+  <div style="max-width:1180px;margin:0 auto;padding:64px 28px 90px;">
+    <div style="font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:#b4884a;font-weight:600;margin-bottom:14px;">Kutubxona</div>
+    <h1 style="font-family:Lora,serif;font-size:46px;font-weight:500;margin:0 0 14px;letter-spacing:-0.02em;">Elektron kutubxona</h1>
+    <p style="font-family:'PT Serif',serif;font-size:17px;line-height:1.65;color:#5d6b64;margin:0 0 50px;max-width:620px;">Kitoblarni onlayn o'qish va PDF formatda bepul yuklab olish imkoniyati.</p>
+    <div style="padding:70px 20px;text-align:center;color:#8a9a91;font-family:'PT Serif',serif;font-size:16px;border:1px dashed #d8d0bc;border-radius:3px;">Kutubxona hozirda to'ldirilmoqda.<br />Tez orada bu yerdan bepul o'qish va yuklab olish mumkin bo'ladi.</div>
+  </div>
+</section>
+</sc-if>
 <section>
   <div style="max-width:1180px;margin:0 auto;padding:64px 28px 90px;">
     <div style="font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:#b4884a;font-weight:600;margin-bottom:14px;">Xronika</div>
@@ -995,6 +1017,7 @@ class Component extends DCLogic {
       isHome: s.view === "home", isBooks: s.view === "books", isBook: s.view === "book",
       isArticles: s.view === "articles", isArticle: s.view === "article" && !!article,
       isPoetry: s.view === "poetry", isNews: s.view === "news", isServices: s.view === "services",
+      isProse: s.view === "prose", isElibrary: s.view === "elibrary",
       isAuthors: s.view === "authors", isAbout: s.view === "about", isContact: s.view === "contact",
       onClick: this.onClick, onInput: this.onInput,
       latBg: s.cyr ? "transparent" : "#114b3c", latFg: s.cyr ? "#7b8a82" : "#f7f4ec",
