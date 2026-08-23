@@ -851,7 +851,7 @@ const AUTHORS = [
 
 class Component extends DCLogic {
   state = {
-    view: "home", articleId: null, bookId: null, cyr: false,
+    view: (typeof window !== "undefined" && window.location.hostname.indexOf("kutubxona.") === 0) ? "elibrary" : "home", articleId: null, bookId: null, cyr: false,
     cart: {}, cartOpen: false, orderStep: 0, orderNo: "", orderError: "",
     openService: null, calcGroup: "tarjima1", calcVariant: 0, calcPages: 100,
     contactSent: false, contactError: "",
