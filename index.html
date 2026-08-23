@@ -893,7 +893,20 @@ class Component extends DCLogic {
     if (act === "place") {
       const f = this.state.form;
       if (!f.oName.trim() || !f.oPhone.trim() || !f.oAddr.trim()) return this.setState({ orderError: "Ism, telefon va manzilni to'ldiring." });
-      return this.setState({ orderStep: 2, orderError: "", cart: {}, orderNo: "ISH-" + Math.floor(1000 + Math.random() * 9000) });
+      const byId = {}; this.books().forEach(b => { byId[b.id] = b; });
+      const cart = this.state.cart;
+      const bookList = Object.keys(cart).map(id => byId[id].title + " x" + cart[id]).join(", ");
+      const cartSum = Object.keys(cart).reduce((a, id) => a + byId[id].price * cart[id], 0);
+      const freeFrom = this.props.freeShippingFrom ?? 150000;
+      const ship = cartSum >= freeFrom ? 0 : 25000;
+      const orderNo = "ISH-" + Math.floor(1000 + Math.random() * 9000);
+      const encode = (data) => Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "buyurtma", ism: f.oName, telefon: f.oPhone, manzil: f.oAddr, tolov_turi: f.oPay, kitoblar: bookList, jami_summa: String(cartSum + ship), buyurtma_raqami: orderNo })
+      }).catch(() => {});
+      return this.setState({ orderStep: 2, orderError: "", cart: {}, orderNo: orderNo });
     }
     if (act === "send-contact") {
       const f = this.state.form;
